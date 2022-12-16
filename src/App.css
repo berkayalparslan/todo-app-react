@@ -23,14 +23,14 @@ html, body{
 .btn{
   margin: 1vh 1vh;
   padding: 1vh 2vh;
+  background-color: #ea7b21;
+  border: none;
+  border-radius: 20%;
 }
 
 #add-task-btn{
   margin: 1vh 1vh;
-  padding: 1vh 2vh;
-  border-radius: 50%;
-  border: none;
-  background-color: #ea7b21;;
+  padding: 1vh 2vh;  
 }
 
 ::placeholder{
