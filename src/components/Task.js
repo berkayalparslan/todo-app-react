@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const Task = () => {
+export const Task = ({task}) => {
   return (
     <li>
-        <input type="checkbox" name="task"/>
-        <span>Learn Javascript</span>
+        <input type="checkbox" name="task" checked={task.completed}/>
+        <span>task.title</span>
     </li>
   )
 }

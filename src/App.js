@@ -5,14 +5,37 @@ import { TasksList } from './components/TasksList';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 
+import {useState} from 'react'
+
 function App() {
+  const [tasks, setTasks] = useState([{
+    id:1,
+    title:"task1",
+    completed: false
+  },
+  {
+    id:2,
+    title:"task2",
+    completed: true
+  },
+  {
+    id:3,
+    title:"task3",
+    completed: false
+  }])
+
+  const addTask = (task) => {
+    setTasks([...tasks, task])
+  }
+
   return (
     <div className="App">
       <Header/>
-      <AddTask/>
-      <TasksList/>
+      <AddTask onAdd={addTask}/>
+      
       <Navbar/>
-      <Footer/>
+      <TasksList tasks={tasks}/>
+      {/* <Footer/> */}
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Task } from './Task'
 
-export const TasksList = () => {
+export const TasksList = ({tasks}) => {
   return (
     <ul>
-        <Task/>
-        <Task/>
-        <Task/>
+      {tasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
     </ul>
   )
 }

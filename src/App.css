@@ -20,12 +20,18 @@ html, body{
   row-gap: 2vh;
 }
 
-.btn{
+.btn, button{
   margin: 1vh 1vh;
   padding: 1vh 2vh;
   background-color: #ea7b21;
+  /* background-color: #CD104D; */
   border: none;
   border-radius: 20%;
+  color: rgb(0, 0, 0);
+}
+
+.btn:hover, button:hover{
+  box-shadow: 0 0 3px 3px rgb(133, 133, 133);
 }
 
 #add-task-btn{
@@ -33,7 +39,7 @@ html, body{
   padding: 1vh 2vh;  
 }
 
-::placeholder{
+input::placeholder{
   color: rgb(0, 0, 0);
 }
 
@@ -67,10 +73,14 @@ ul li{
   border-bottom: 10px;
   background-color: #E14D2A;
   padding: 1vh 5vh;
+  margin: 1vh 1vh;
+  border: 0;
+  border-radius: 10px;
 }
 
 ul li:nth-child(even){
   background-color: #CD104D;
+  /* background-color: aliceblue; */
 }
 
 #navbar{
@@ -85,8 +95,6 @@ ul li:nth-child(even){
 }
 
 .filter{
-  background-color: aliceblue;
-  color: black;
   border: 0;
   border-radius: 10px;
   text-align: center;
