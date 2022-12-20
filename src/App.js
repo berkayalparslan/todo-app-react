@@ -22,10 +22,19 @@ function App() {
     id:3,
     title:"task3",
     completed: false
-  }])
+  }]);
 
   const addTask = (task) => {
     setTasks([...tasks, task])
+  }
+
+  const onCheckboxClick = (id) => {
+    console.log(`checkbox clicked ${(id)}`)
+    
+    setTasks(
+      tasks.map((task) => 
+      task.id === id ? {...task, completed: !task.completed} : task)
+    )
   }
 
   return (
@@ -34,7 +43,7 @@ function App() {
       <AddTask onAdd={addTask}/>
       
       <Navbar/>
-      <TasksList tasks={tasks}/>
+      <TasksList tasks={tasks} onCheckboxClick={onCheckboxClick}/>
       {/* <Footer/> */}
     </div>
   );
