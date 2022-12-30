@@ -32,6 +32,8 @@ function App() {
   const [currentFilterId, setCurrentFilter] = useState(1);
 
   const addTask = (task) => {
+    task.id = tasks.length + 1;
+    task.completed = false;
     setTasks([...tasks, task])
   };
 
@@ -39,7 +41,7 @@ function App() {
     setTasks(
       tasks.map((task) => 
       task.id === id ? {...task, completed: !task.completed} : task)
-    )
+    );
   }
 
   const filterTasks = (id) => {
