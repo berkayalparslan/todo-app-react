@@ -24,17 +24,29 @@ function App() {
     completed: false
   }]);
 
+  const [filters,setFilters] = useState([
+    {id:1, name: 'All', active: true}, 
+    {id:2, name: 'Active', active:false}, 
+    {id:3, name: 'Completed', active:false
+  }]);
+
   const addTask = (task) => {
     setTasks([...tasks, task])
-  }
+  };
 
   const onCheckboxClick = (id) => {
-    console.log(`checkbox clicked ${(id)}`)
-    
     setTasks(
       tasks.map((task) => 
       task.id === id ? {...task, completed: !task.completed} : task)
     )
+  }
+
+  const filterTasks = (id) => {
+    //filter tasks
+    
+    //update filters
+    setFilters(filters.map(filter => filter.active = false ));
+    setFilters(filters.map(filter => filter.id === id ? {...filter, active: !filter.active} : filter ));  
   }
 
   return (
@@ -42,7 +54,7 @@ function App() {
       <Header/>
       <AddTask onAdd={addTask}/>
       
-      <Navbar/>
+      <Navbar tasksCount={tasks.length} filters={filters} onFilterSelect={filterTasks}/>
       <TasksList tasks={tasks} onCheckboxClick={onCheckboxClick}/>
       {/* <Footer/> */}
     </div>

@@ -1,17 +1,19 @@
 import React from 'react'
+import { FilterButton } from './FilterButton'
 
-export const Navbar = () => {
+export const Navbar = ({filters, onFilterSelect, tasksCount}) => {
   return (
     <div id='navbar'>
         <form action="">
         <input type="text" name="" id="" placeholder='Search'/>
         <input type="submit" value="search" className='btn'/>
         </form>
+        <h6>{tasksCount} task(s) found.</h6>
         
         <div id='filters'>
-            <button className="filter filter-selected">All</button>
-            <button className="filter">Active</button>
-            <button className="filter">Completed</button>
+          {filters.map((filter) => (
+            <FilterButton key={filter.id} filter={filter} onFilterSelect={onFilterSelect}/>
+          ))}
         </div>
     </div>
   )

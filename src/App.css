@@ -86,7 +86,7 @@ ul li:nth-child(even){
 #navbar{
   display: flex;
   justify-content: space-between;
-  gap: 15vh;
+  gap: 4vh;
 }
 
 #filters{
