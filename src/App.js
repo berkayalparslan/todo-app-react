@@ -27,8 +27,9 @@ function App() {
   const [filters,setFilters] = useState([
     {id:1, name: 'All', active: true}, 
     {id:2, name: 'Active', active:false}, 
-    {id:3, name: 'Completed', active:false
-  }]);
+    {id:3, name: 'Completed', active:false}]);
+
+  const [currentFilterId, setCurrentFilter] = useState(1);
 
   const addTask = (task) => {
     setTasks([...tasks, task])
@@ -43,7 +44,7 @@ function App() {
 
   const filterTasks = (id) => {
     //filter tasks
-    
+    setCurrentFilter(id);
     //update filters
     setFilters(filters.map(filter => filter.active = false ));
     setFilters(filters.map(filter => filter.id === id ? {...filter, active: !filter.active} : filter ));  
@@ -55,7 +56,7 @@ function App() {
       <AddTask onAdd={addTask}/>
       
       <Navbar tasksCount={tasks.length} filters={filters} onFilterSelect={filterTasks}/>
-      <TasksList tasks={tasks} onCheckboxClick={onCheckboxClick}/>
+      <TasksList currentFilterId={currentFilterId} tasks={tasks} onCheckboxClick={onCheckboxClick}/>
       {/* <Footer/> */}
     </div>
   );
