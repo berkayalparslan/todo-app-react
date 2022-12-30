@@ -30,6 +30,7 @@ function App() {
     {id:3, name: 'Completed', active:false}]);
 
   const [currentFilterId, setCurrentFilter] = useState(1);
+  const [currentlySearchedPhrase, setSearchPhrase] = useState('');
 
   const addTask = (task) => {
     task.id = tasks.length + 1;
@@ -52,13 +53,17 @@ function App() {
     setFilters(filters.map(filter => filter.id === id ? {...filter, active: !filter.active} : filter ));  
   }
 
+  const onSearchPhraseSet = (searchPhrase) => {
+    setSearchPhrase(searchPhrase);
+  }
+
   return (
     <div className="App">
       <Header/>
       <AddTask onAdd={addTask}/>
       
-      <Navbar tasksCount={tasks.length} filters={filters} onFilterSelect={filterTasks}/>
-      <TasksList currentFilterId={currentFilterId} tasks={tasks} onCheckboxClick={onCheckboxClick}/>
+      <Navbar tasksCount={tasks.length} filters={filters} onFilterSelect={filterTasks} onSearchPhraseSet={onSearchPhraseSet}/>
+      <TasksList currentFilterId={currentFilterId} currentSearchPhrase={currentlySearchedPhrase} tasks={tasks} onCheckboxClick={onCheckboxClick}/>
       {/* <Footer/> */}
     </div>
   );

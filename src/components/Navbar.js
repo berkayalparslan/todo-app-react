@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FilterButton } from './FilterButton'
 
-export const Navbar = ({filters, onFilterSelect, tasksCount}) => {
+export const Navbar = ({filters, onFilterSelect, tasksCount, onSearchPhraseSet}) => {
   return (
     <div id='navbar'>
-        <form action="">
-        <input type="text" name="" id="" placeholder='Search'/>
-        <input type="submit" value="search" className='btn'/>
-        </form>
+        <input type="text" onChange={(e) => onSearchPhraseSet(e.target.value)} placeholder='Search'/>
         <h6>{tasksCount} task(s) found.</h6>
         
         <div id='filters'>
